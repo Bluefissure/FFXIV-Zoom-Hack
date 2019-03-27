@@ -173,7 +173,7 @@ namespace FFXIVZoomHack
 
                         if (string.Equals(Settings.LastUpdate, offsets.LastUpdate))
                         {
-                            MessageBox.Show("No new update found");
+                            MessageBox.Show("未发现更新。");
                             return;
                         }
 
@@ -194,7 +194,7 @@ namespace FFXIVZoomHack
                         {
                             Invoke(() => ApplyChanges());
                         }
-                        MessageBox.Show("Updated: " + Settings.LastUpdate);
+                        MessageBox.Show("已更新： " + Settings.LastUpdate);
                     }
                     catch (Exception ex)
                     {
@@ -213,7 +213,7 @@ namespace FFXIVZoomHack
 
         private void _updateLocationDefault_Click(object sender, EventArgs e)
         {
-            _updateOffsetsTextbox.Text = @"https://raw.githubusercontent.com/jayotterbein/FFXIV-Zoom-Hack/master/Offsets.xml";
+            _updateOffsetsTextbox.Text = @"https://raw.githubusercontent.com/Bluefissure/FFXIVZoomOffsets/master/Offsets.xml";
         }
     }
 }

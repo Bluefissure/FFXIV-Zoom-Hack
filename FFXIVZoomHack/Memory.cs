@@ -30,11 +30,13 @@ namespace FFXIVZoomHack
 
         public static void Apply(Settings settings, int pid)
         {
+            
             if (string.Equals(settings.LastUpdate, "unupdated", StringComparison.Ordinal))
             {
-                MessageBox.Show("Memory offsets need updating, click the update offsets button.");
-                return;
+                MessageBox.Show("内存偏移可能需要更新，请点击更新按钮后重启程序。");
+                //return;
             }
+            
 
             try
             {
@@ -101,7 +103,7 @@ namespace FFXIVZoomHack
             var buffer = BitConverter.GetBytes(value);
             if (!WriteProcessMemory(hProcess, address, buffer, buffer.Length, out var written))
             {
-                throw new Exception("Could not write process memory: " + Marshal.GetLastWin32Error());
+                throw new Exception("无法写入内存： " + Marshal.GetLastWin32Error());
             }
         }
 
@@ -113,7 +115,7 @@ namespace FFXIVZoomHack
             {
                 if (!ReadProcessMemory(hProcess, IntPtr.Add(addr, offset), buffer, buffer.Length, out var read))
                 {
-                    throw new Exception("Unable to read process memory");
+                    throw new Exception("无法读取进程内存");
                 }
                 addr = (size == 8)
                     ? new IntPtr(BitConverter.ToInt64(buffer, 0))
@@ -132,7 +134,7 @@ namespace FFXIVZoomHack
                 var pModules = gch.AddrOfPinnedObject();
                 if (EnumProcessModules(hProcess, pModules, uiSize, out var cbNeeded) != 1)
                 {
-                    throw new Exception("Could not enumerate modules: " + Marshal.GetLastWin32Error());
+                    throw new Exception("无法枚举模型： " + Marshal.GetLastWin32Error());
                 }
 
                 var mainModule = IntPtr.Zero;
@@ -142,7 +144,7 @@ namespace FFXIVZoomHack
                     var moduleFilenameBuilder = new StringBuilder(1024);
                     if (GetModuleFileNameEx(hProcess, hModules[i], moduleFilenameBuilder, moduleFilenameBuilder.Capacity) == 0)
                     {
-                        throw new Exception("Could not get module filename: " + Marshal.GetLastWin32Error());
+                        throw new Exception("无法获取文件名： " + Marshal.GetLastWin32Error());
                     }
 
                     var moduleFilename = moduleFilenameBuilder.ToString();
@@ -155,12 +157,12 @@ namespace FFXIVZoomHack
 
                 if (mainModule == IntPtr.Zero)
                 {
-                    throw new Exception("Could not find module for executable");
+                    throw new Exception("未发现可运行程序");
                 }
 
                 if (!GetModuleInformation(hProcess, mainModule, out var moduleInfo, (uint) Marshal.SizeOf<ModuleInfo>()))
                 {
-                    throw new Exception("Could not get module information from process" + Marshal.GetLastWin32Error());
+                    throw new Exception("无法从进程获取信息 " + Marshal.GetLastWin32Error());
                 }
 
                 return moduleInfo.lpBaseOfDll;
