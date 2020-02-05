@@ -19,7 +19,7 @@ namespace FFXIVZoomHack
             DesiredZoom = 20;
             DesiredFov = 0.78f;
 
-            OffsetUpdateLocation = @"https://raw.githubusercontent.com/Bluefissure/FFXIVZoomOffsets/master/Offsets.xml";
+            OffsetUpdateLocation = @"https://raw.githubusercontent.com/Bluefissure/FFXIV-Zoom-Hack/master/Offsets.xml";
             LastUpdate = "unupdated";
         }
 
@@ -139,13 +139,6 @@ namespace FFXIVZoomHack
 
         private IEnumerable<XElement> GetSaveElements()
         {
-            yield return new XElement("DX9",
-                new XElement("StructureAddress", string.Join(",", DX9_StructureAddress.Select(x => x.ToString("X", CultureInfo.InvariantCulture)))),
-                new XElement("ZoomCurrent", DX9_ZoomCurrent.ToString("X", CultureInfo.InvariantCulture)),
-                new XElement("ZoomMax", DX9_ZoomMax.ToString("X", CultureInfo.InvariantCulture)),
-                new XElement("FovCurrent", DX9_FovCurrent.ToString("X", CultureInfo.InvariantCulture)),
-                new XElement("FovMax", DX9_FovMax.ToString("X", CultureInfo.InvariantCulture))
-                );
             yield return new XElement("DX11",
                 new XElement("StructureAddress", string.Join(",", DX11_StructureAddress.Select(x => x.ToString("X", CultureInfo.InvariantCulture)))),
                 new XElement("ZoomCurrent", DX11_ZoomCurrent.ToString("X", CultureInfo.InvariantCulture)),

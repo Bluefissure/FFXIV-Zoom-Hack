@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Root>
-  <DX9>
-    <StructureAddress>1262D90</StructureAddress>
-    <ZoomCurrent>F8</ZoomCurrent>
-    <ZoomMax>100</ZoomMax>
-    <FovCurrent>104</FovCurrent>
-    <FovMax>10C</FovMax>
-  </DX9>
   <DX11>
-    <StructureAddress>19A2820</StructureAddress>
+    <StructureAddress>1BF9B20</StructureAddress>
     <ZoomCurrent>118</ZoomCurrent>
     <ZoomMax>120</ZoomMax>
     <FovCurrent>124</FovCurrent>
     <FovMax>12C</FovMax>
   </DX11>
-  <LastUpdate>2019-03-27 - patch 4.45 (DX11DX9)</LastUpdate>
+  <LastUpdate>2020-02-04 - patch 5.1 (DX11)</LastUpdate>
+  <AutoApply>False</AutoApply>
+  <DesiredZoom>39</DesiredZoom>
+  <DesiredFov>0.73</DesiredFov>
+  <OffsetUpdateLocation>https://raw.githubusercontent.com/Bluefissure/FFXIV-Zoom-Hack/master/Offsets.xml</OffsetUpdateLocation>
 </Root>
