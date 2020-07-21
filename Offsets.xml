@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Root>
   <DX11>
-    <StructureAddress>1BF9B20</StructureAddress>
-    <ZoomCurrent>118</ZoomCurrent>
-    <ZoomMax>120</ZoomMax>
-    <FovCurrent>124</FovCurrent>
-    <FovMax>12C</FovMax>
+    <StructureAddress>1C5E270</StructureAddress>
+    <ZoomCurrent>114</ZoomCurrent>
+    <ZoomMax>11C</ZoomMax>
+    <FovCurrent>120</FovCurrent>
+    <FovMax>128</FovMax>
   </DX11>
-  <LastUpdate>2020-05-23 - patch 5.18 (DX11)</LastUpdate>
+  <LastUpdate>2020-07-21 - patch 5.2 (DX11)</LastUpdate>
   <AutoApply>False</AutoApply>
   <DesiredZoom>39</DesiredZoom>
   <DesiredFov>0.73</DesiredFov>
